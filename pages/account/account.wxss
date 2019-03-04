@@ -1,0 +1,22 @@
+/* 头像 */
+page {
+  background-color: #f8f8f8;
+  font-size: 16px;
+}
+.cell{
+  background-color: #ffffff;
+}
+
+.header-bg{
+  width: 140rpx;
+  height: 140rpx;
+  border: 2px solid #fff;
+  margin: 0rpx auto 0;
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: 1px 0px 5px rgba(50, 50, 50, 0.3);
+}
+.name{
+  font-size: 35rpx;
+  margin-top: 40rpx;
+}

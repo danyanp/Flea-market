@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "青协跳蚤市场",
+  "usingComponents": {
+    "van-button": "../../style/dist/button/index",
+    "van-card": "../../style/dist/card/index",
+    "van-tab": "../../style/dist/tab/index",
+    "van-tabs": "../../style/dist/tabs/index",
+    "van-field": "../../style/dist/field/index",
+    "van-toast": "../../style/dist/toast/index"
+  }
+}

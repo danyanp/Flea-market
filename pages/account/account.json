@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "usingComponents": {
+      "van-row": "../../style/dist/row/index",
+      "van-col": "../../style/dist/col/index",
+      "van-cell": "../../style/dist/cell/index",
+      "van-cell-group": "../../style/dist/cell-group/index",
+      "van-card": "../../style/dist/card/index"
+    }
+}

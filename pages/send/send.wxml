@@ -1,0 +1,121 @@
+<!--pages/send/send.wxml-->
+<van-toast id="van-toast" />
+<form bindsubmit="formSubmit">
+<!-- 物品名称 -->
+  <view class='cell'>
+      <van-field
+      name="goodname"
+      value="{{ goodname }}"
+      required
+      clearable
+      label="物品名称"
+      icon="question-o"
+      placeholder="请输入名称"
+      bind:click-icon="onClickIcon"
+    />
+    </view>
+<!-- 物品描述 -->
+  <view class='cell'>
+    <van-cell-group>
+      <van-field 
+      name="description"
+      value="{{ description }}" 
+      label="物品描述" 
+      type="textarea" 
+      placeholder="请输入想要卖的物品的描述" 
+      autosize border="{{ false }}" />
+    </van-cell-group>
+  </view>
+<!-- 定价 -->
+  <view class='cell'>
+    <van-field
+    name="goodprice"
+    value="{{ goodprice }}"
+    required
+    clearable
+    label="定价"
+    type="number"
+    icon="question-o"
+    placeholder="请输入定价"
+    bind:click-icon="onClickIcon"
+  />
+  </view>
+<!-- 图片上传 -->
+  <view class='cell '>
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell_bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader_hd">
+                            <view class="weui-uploader_title">图片上传</view>
+                            <view class="weui-uploader_info">{{files.length}}/1</view>
+                        </view>
+                        <view class="weui-uploader_bd">
+                            <view class="weui-uploader_files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader_file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader_img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader_input-box">
+                                <view class="weui-uploader_input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+  </view>
+<!-- 姓名，电话号码，宿舍号 -->
+  <view class='cell'>
+  <van-cell-group>
+  <van-field
+    name="username"
+    value="{{ username }}"
+    required
+    clearable
+    label="姓名"
+    icon="question-o"
+    placeholder="请输入姓名"
+    bind:click-icon="onClickIcon"
+  />
+
+ <van-field
+    name="phonenum"
+    value="{{ phonenum }}"
+    required
+    clearable
+    label="电话号码"
+    icon="question-o"
+    placeholder="请输入号码"
+    bind:click-icon="onClickIcon"
+  />
+
+   <van-field
+    name="classnum"
+    value="{{ classnum }}"
+    required
+    clearable
+    label="宿舍号"
+    icon="question-o"
+    placeholder="请输入宿舍号"
+    bind:click-icon="onClickIcon"
+  />
+</van-cell-group>
+  </view>
+<!-- 交易方式 -->
+  <view class='cell'>
+      <van-cell-group>
+      <van-field
+        value="线下交易"
+        label="交易方式"
+        left-icon="card"
+        disabled
+        border="{{ false }}"
+      />
+    </van-cell-group>
+  </view>
+
+  <button size="large" type="danger"  form-type="submit">发布</button>
+</form>

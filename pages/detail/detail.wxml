@@ -1,0 +1,88 @@
+<!--pages/detail/detail.wxml-->
+<scroll-view bindscroll="scroll">
+
+  <view class="container">
+    <view bindtap="imgPreview">
+      <swiper class="banner-box  swiper-box"  indicator-dots="true">
+        <swiper-item>
+          <image class="slide-image" mode="aspectFill" src="{{detail.goodpicture.url}}"></image>
+        </swiper-item>
+      </swiper>
+      <view class="number-banner">
+        <text>1/</text>
+        <text>1</text>
+      </view>
+    </view>
+
+    <view class="cont-box b-f">
+      <view class="goods-title ">
+        <text class="title f-32 twolist-hidden">{{detail.goodname}}</text>
+      </view>
+      <view class="money-box">
+        <text class="num">￥{{detail.goodprice}}</text>
+      </view>
+      <view class="goods-sales-box f-28 dis-flex">
+        <text class="flex-box stock">库存:1</text>
+      </view>
+    </view>
+
+
+
+    <!-- 商品描述 -->
+    <view class="p-bottom">
+      <view class="top-nav m-top20 b-f b-b">
+        <view class="top-nav-bar">
+          <view bindtap="toOrder" id="top-nav-bar-true">
+            <span>商品描述</span>
+          </view>
+        </view>
+      </view>
+      <view class="order" hidden="{{hiddenOrder}}">
+        <view wx:if="{{detail.description!=''}}">
+          <view class="b-f goods-detail-box">
+         <view class='des'>{{detail.description}}</view>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="ectouch-notcont">
+            <text class="iconfont icon-meiyougengduo"></text>
+            <text class="cont">亲,此处暂无详情数据</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+
+
+</scroll-view>
+
+
+<van-goods-action>
+
+  <van-goods-action-icon 
+  icon="chat-o" 
+  text="客服" 
+  bind:click="onClickIcon" 
+  />
+
+  <van-goods-action-icon 
+  icon="cart-o" 
+  text="购物车" 
+  bind:click="onClickIcon" 
+  />
+
+  <van-goods-action-button 
+  text="活动详情" 
+  type="warning" 
+  bind:click="onClickButton" 
+  />
+
+  <van-goods-action-button 
+  text="我想要" 
+  bind:click="onClickButton" 
+  />
+
+</van-goods-action>
