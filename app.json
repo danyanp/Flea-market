@@ -4,6 +4,8 @@
     "pages/account/account",
     "pages/login/login",
     "pages/detail/detail",
+    "pages/msg/msg_success",
+    "pages/msg/msg_fail",
     "pages/send/send",
     "pages/logs/logs"
   ],
@@ -26,7 +28,7 @@
         "text": "首页"
       },
       {
-         "pagePath": "pages/account/account",
+         "pagePath": "pages/login/login",
          "iconPath": "images/icon_detail.png",
          "selectedIconPath": "images/icon_detail_selected.png",
          "text": "活动"

@@ -1,3 +1,4 @@
+<van-toast id="van-toast" />
 <!-- <view> -->
 <view class="container">
   <view class="wechatapp">

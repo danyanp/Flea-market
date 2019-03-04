@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <!-- 顶部tab标签 -->
+<van-toast id="van-toast" />
 <van-tabs type="card" color="#1296db">
-
   <!-- 1.已经发布 -->
   <van-tab title="已经发布">
+   <view wx:if="{{data!=0}}">
     <!-- 滚动视图，加载商品信息 -->
     <scroll-view>
-
       <view class='card' wx:for="{{data}}" wx:key="data">
         <navigator hover-class="none" url="../detail/detail?goods_id={{item.objectId}}">
           <van-card 
@@ -25,7 +25,12 @@
       </view>
 
     </scroll-view>
-
+   </view>
+   <view wx:else>
+        <view class="ectouch-notcont">
+        <text class="cont">亲，没有人发布哦，下拉刷新试试</text>
+      </view>
+   </view>
 
   </van-tab>
   <!-- 2.我要发布 -->
@@ -125,6 +130,7 @@
     clearable
     label="电话号码"
     icon="question-o"
+    type="number"
     placeholder="请输入号码"
     bind:click-icon="onClickIcon"
   />
@@ -155,7 +161,9 @@
     </van-cell-group>
   </view>
 
-  <button size="large" type="danger"  form-type="submit">发布</button>
+  <button class="weui-btn" type="warn" size="large" form-type="submit">发布</button>
+  
+
 </form>
 
   </van-tab>

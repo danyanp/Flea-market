@@ -18,6 +18,22 @@ Page({
       })
     });
   },
+  //下拉刷新
+  onPullDownRefresh() {
+    var that = this;
+    console.log("下拉刷新");
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    that.onLoad(); 
+    setTimeout(function () {
+      console.log("停止刷新");
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+      Toast.success('刷新成功');
+    }, 1000) 
+  },
+  onShow:function(){
+    this.onLoad();
+  },
   // 选择照片
   chooseImage: function (e) {
     var that = this;
@@ -78,12 +94,29 @@ Page({
         var classnum = e.detail.value.classnum;
         var pic = value;
   
-        if (!pic|!goodname | !goodprice | !username | !phonenum | !classnum) {
+        if (!pic|!goodname | !goodprice | !username | !phonenum | !classnum)         {
           Toast('亲，打*号的为必填项');
           return false;
         }
-        const relation = Bmob.Relation('_User')
-        const relID = relation.add(['2e4facdd99'])
+        //判断是否登录，并提取objectid
+        try {
+          const value = wx.getStorageSync('bmob')
+          if (value) {
+            console.log("登录状态");
+            var obj = JSON.parse(value).objectId;
+            // Do something with return value
+          } else {
+            console.log("未登录状态");
+            wx.hideNavigationBarLoading();
+            App._doLogin();
+          }
+        } catch (e) {
+          console.log(e);
+          // Do something when catch error
+        }
+
+        const relation = Bmob.Relation('_User') 
+        const relID = relation.add(obj)
         const query = Bmob.Query('goods');
         query.set('User_id', relID);
         query.set("goodname", goodname)
@@ -94,18 +127,18 @@ Page({
         query.set("classnum", classnum)
         query.set('goodpicture', pic)
         query.save().then(res => {
-          Toast.success('发布成功,待审核');
+          // 清除缓存
           wx.removeStorage({
             key: 'files',
             success(res) {
               console.log("清除成功"+res.data)
             }
           })
-          setTimeout(function () {
-            that.onLoad();
-          }, 2000)
-
-          console.log(res)
+          var context = "请勿重复发布！！！！";
+          // 更新页面
+            wx.redirectTo({
+              url: "../msg/msg_success?context=" + context
+            })
 
         }).catch(err => {
           Toast.fail('发布失败');

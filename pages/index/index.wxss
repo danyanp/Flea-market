@@ -9,6 +9,11 @@ page {
   background-color: #f8f8f8;
   font-size: 16px;
 }
+.weui-btn{margin-top:15px}
+button[type=warn] {
+  color:#FFFFFF;
+  background-color:#E64340;
+}
 
 .cell {
   margin-top: 10px;
@@ -159,4 +164,21 @@ page {
   width: 100%;
   height: 100%;
   opacity: 0;
+}
+.ectouch-notcont .iconfont {
+font-size:150rpx;
+color:#ccc;
+text-align:center;
+display:block;
+margin-bottom:10rpx;
+}
+.ectouch-notcont {
+margin:130rpx 100rpx;
+}
+.ectouch-notcont .cont {
+display:block;
+text-align:center;
+font-size:30rpx;
+color:#999;
+margin-top:10rpx;
 }
