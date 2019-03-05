@@ -2,7 +2,7 @@ import Toast from '../../style/dist/toast/toast';
 var Bmob = require('../../utils/Bmob-1.6.7.min.js')
 //index.js
 //获取应用实例
-const app = getApp()
+let App = getApp()
 
 Page({
 
@@ -38,6 +38,7 @@ Page({
       floorstatus: e.detail.scrollTop > 200
     })
   },
+  //分页加载
   ListsetData:function(){
     var that = this;
     const query = Bmob.Query("goods");
@@ -47,24 +48,20 @@ Page({
     query.skip(that.data.pageSize * that.data.pagination);
     query.order('-orderid');
     query.find().then(res => {
-      console.log(res)
       //判断是否有数据返回
       if (res.length) {
         //得到页面上已经渲染的数据(数组)
         let goods = that.data.data;
         //获取当前分页(第几页)
         let pagination = that.data.pagination;
-        console.log("第几页" + pagination)
-
         //将页面上面的数组和最新获取到的数组进行合并
         goods.push.apply(goods, res);
-
         //此处用于判断是首次渲染数据还是下拉加载渲染数据
         pagination = pagination ? pagination + 1 : 1;
         wx.showToast({
           title: '数据加载中',
           icon: 'loading',
-          duration: 1000
+          duration: 500
         });
         //更新数据
         this.setData({
@@ -103,7 +100,7 @@ Page({
       Toast.success('刷新成功');
     }, 1000)
   },
-  // 选择照片
+  //选择照片
   chooseImage: function (e) {
     var that = this;
     wx.chooseImage({

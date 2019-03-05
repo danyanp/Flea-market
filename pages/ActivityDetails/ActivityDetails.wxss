@@ -1,0 +1,14 @@
+/* pages/ActivityDetails/ActivityDetails.wxss */
+page{
+  background-color: #EFEFEF;
+}
+.panelstyle{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.paneltext{
+  font-size: 22rpx;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

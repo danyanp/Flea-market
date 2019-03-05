@@ -1,0 +1,31 @@
+<scroll-view  bindscrolltolower="toLowFun" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-y="true" style="position:fixed;top:30px; left:0; right:0; bottom:0;">
+      <view class='card' wx:for="{{data}}" wx:key="data">
+        <navigator hover-class="none" url="../../detail/detail?goods_id={{item.objectId}}">
+          <van-card 
+            num="{{item.createdAt}}"
+            tag="{{item.tag}}" 
+            price="{{item.goodprice}}" 
+            desc="{{item.description}}" 
+            title="{{item.goodname}}" 
+            thumb="{{item.goodpicture.url}}"
+          >
+            <view slot="footer">
+              <van-button round type="danger"  size="mini">删除</van-button>
+              <van-button round type="danger"  size="mini">查看</van-button>
+            </view>
+          </van-card>
+        </navigator>
+      </view>
+
+      <!-- 返回顶部 -->
+      <view bindtap="goTop" class="widget-goTop" wx:if="{{floorstatus}}">
+        <van-icon name="upgrade" size="40px" color="#f0f0f0"/>
+      </view>
+
+      <!-- 底线 -->
+        <view class="title-footer p-r" wx:if="{{!nodata}}">
+          <text class="f-24 col-9 cont">我是有底线的</text>
+          <view class="hr"></view>
+        </view>
+
+    </scroll-view>

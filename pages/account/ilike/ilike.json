@@ -1,0 +1,13 @@
+{
+      "navigationBarTitleText": "我的喜欢",
+      "backgroundColor": "#f0f0f0",
+      "usingComponents": {
+        "van-button": "../../../style/dist/button/index",
+        "van-card": "../../../style/dist/card/index",
+        "van-tab": "../../../style/dist/tab/index",
+        "van-tabs": "../../../style/dist/tabs/index",
+        "van-field": "../../../style/dist/field/index",
+        "van-toast": "../../../style/dist/toast/index",
+        "van-icon": "../../../style/dist/icon/index"
+    }
+}

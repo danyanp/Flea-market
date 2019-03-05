@@ -5,24 +5,40 @@ Bmob.initialize("1bacb4177d73bf9bb5f28c6329d22bd4", "ed4734ed7ea6aa6516ac32028cf
 //app.js
 App({
   onLaunch: function () {
-
+    this._isLogin();
+  },
+   /**
+ * 判断是否登录
+ */
+  _isLogin:function(){
     // 判断是否登录
+
     try {
       const value = wx.getStorageSync('bmob')
       if (value) {
         console.log("登录状态");
+        var obj = JSON.parse(value)
+        var object = obj.objectId;
+        const query = Bmob.Query('_User');
+        query.get(object).then(res => {
+        }).catch(err => {
+          this._doLogin();
+        })
+        return obj;
         // Do something with return value
-      }else{
+      } else {
         console.log("未登录状态");
         wx.hideNavigationBarLoading();
-        this._doLogin(); 
+        this._doLogin();
       }
+
     } catch (e) {
       console.log(e);
       // Do something when catch error
     }
-
   },
+
+
   /**
  * 执行用户登录
  */

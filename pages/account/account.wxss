@@ -20,3 +20,10 @@ page {
   font-size: 35rpx;
   margin-top: 40rpx;
 }
+.contact-button {
+     display: inline-block;
+     position: absolute;
+     width: 100%;
+     background: salmon;
+     opacity: 0;
+}

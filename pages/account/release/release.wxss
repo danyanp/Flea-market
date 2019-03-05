@@ -1,0 +1,8 @@
+/* pages/account/release/release.wxss */
+page{
+  background-color: #EFEFEF;
+}
+.card{
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}

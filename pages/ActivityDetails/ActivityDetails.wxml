@@ -1,0 +1,27 @@
+<!-- 活动步骤进度条 -->
+<van-steps steps="{{ steps }}" active="{{ active }}" active-color="#1296db" />
+
+<!-- 活动详情  -->
+<view class="panelstyle">
+  <van-panel title="1.阶段一" desc=" 商品信息收集">
+    <view class="paneltext">商品信息收集</view>
+  </van-panel>
+</view>
+
+<view class="panelstyle">
+  <van-panel title="1.阶段一" desc=" 商品信息收集">
+    <view class="paneltext">商品信息收集</view>
+  </van-panel>
+</view>
+
+<view class="panelstyle">
+  <van-panel title="1.阶段一" desc=" 商品信息收集">
+    <view class="paneltext">商品信息收集</view>
+  </van-panel>
+</view>
+
+<view class="panelstyle">
+  <van-panel title="1.阶段一" desc=" 商品信息收集">
+    <view class="paneltext">商品信息收集</view>
+  </van-panel>
+</view>

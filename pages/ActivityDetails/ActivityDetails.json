@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "活动详情",
+  "usingComponents": {
+    "van-steps": "../../style/dist/steps/index",
+    "van-panel": "../../style/dist/panel/index"
+  }
+}

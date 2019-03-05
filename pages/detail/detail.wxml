@@ -1,6 +1,6 @@
 <!--pages/detail/detail.wxml-->
+<van-toast id="van-toast" />
 <scroll-view bindscroll="scroll">
-
   <view class="container">
     <view bindtap="imgPreview">
       <swiper class="banner-box  swiper-box"  indicator-dots="true">
@@ -13,7 +13,16 @@
         <text>1</text>
       </view>
     </view>
-
+    <van-transition
+        show="{{ showCustom }}"
+        name=""
+        duration="{{ { enter: 300, leave: 1000 } }}"
+        custom-class="heart-shape"
+        enter-class="van-enter-class"
+        enter-active-class="van-enter-active-class"
+        leave-active-class="van-leave-active-class"
+        leave-to-class="van-leave-to-class"
+    />
     <view class="cont-box b-f">
       <view class="goods-title ">
         <text class="title f-32 twolist-hidden">{{detail.goodname}}</text>
@@ -22,10 +31,22 @@
         <text class="num">￥{{detail.goodprice}}</text>
       </view>
       <view class="goods-sales-box f-28 dis-flex">
-        <text class="flex-box stock">库存:1</text>
+       <text class="stock">发布时间: {{detail.createdAt}}</text>
+        <text class="flex-box stock">想要人数:{{detail.wantnum}}</text>
       </view>
     </view>
 
+    <view style='margin-top:20rpx;'>
+        <van-cell-group>
+        <van-field
+          value="线下交易"
+          label="交易方式"
+          left-icon="card"
+          disabled
+          border="{{ false }}"
+        />
+      </van-cell-group>
+    </view>
 
 
     <!-- 商品描述 -->
@@ -65,7 +86,7 @@
   <van-goods-action-icon 
   icon="chat-o" 
   text="客服" 
-  bind:click="onClickIcon" 
+  open-type="contact"
   />
 
   <van-goods-action-icon 
@@ -75,13 +96,15 @@
   />
 
   <van-goods-action-button 
+  id="activitydetails"
   text="活动详情" 
   type="warning" 
   bind:click="onClickButton" 
   />
 
   <van-goods-action-button 
-  text="我想要" 
+  id = "iwant"
+  text="{{iwant}}" 
   bind:click="onClickButton" 
   />
 

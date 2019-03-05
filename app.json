@@ -2,10 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/account/account",
+    "pages/account/ilike/ilike",
+    "pages/account/release/release",
+    "pages/account/help/help",
+    "pages/account/feedback/feedback",
     "pages/login/login",
     "pages/detail/detail",
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
+    "pages/ActivityDetails/ActivityDetails",
     "pages/send/send",
     "pages/logs/logs"
   ],
@@ -28,7 +33,7 @@
         "text": "首页"
       },
       {
-         "pagePath": "pages/login/login",
+         "pagePath": "pages/ActivityDetails/ActivityDetails",
          "iconPath": "images/icon_detail.png",
          "selectedIconPath": "images/icon_detail_selected.png",
          "text": "活动"

@@ -28,14 +28,6 @@ Page({
    * 获取帮助列表
    */
   getHelpList: function () {
-    let _this = this;
-    App._get('wxapp/help', {}, function (result) {
-      if (result.code === 1) {
-        _this.setData(result.data);
-      } else {
-        App.showError(result.msg);
-      }
-    });
   },
 
 })

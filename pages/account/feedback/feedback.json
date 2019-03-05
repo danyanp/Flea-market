@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "反馈建议",
+  "usingComponents": {
+    "van-toast": "../../../style/dist/toast/index"
+  }
+}

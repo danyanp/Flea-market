@@ -1,47 +1,39 @@
 <van-row>
 <view class='cell'>
   <!-- 圆角头像+个人信息 -->
-  <van-row gutter="20">
+<navigator>
+ <van-row gutter="20">
     <van-col span="8">
       <view class="header-bg">
         <open-data type="userAvatarUrl"></open-data>
       </view>
     </van-col>
     <van-col span="16">
-      <view class='name'>单眼皮</view>
+      <view class='name'>{{userInfo.username}}</view>
     </van-col>
   </van-row>
+</navigator>
+ 
+
 </view>
 
 
   <!-- 内标实现功能 -->
   <van-row>
-    <navigator url="../account/help/help">
-
-      <van-cell title="我的发布" icon="user-o" is-link />
-
-    </navigator>
+      <van-cell title="我的发布" icon="user-o" url="release/release"is-link />
   </van-row>
+
   <van-row>
-    <navigator url="../account/help/help">
-
-      <van-cell title="我的帮助" icon="question-o" is-link />
-
-    </navigator>
+      <van-cell title="我的想要" icon="like-o" url="ilike/ilike" is-link />
   </van-row>
+
+  <van-row>
+      <van-cell title="我的帮助" icon="question-o" url="help/help" is-link />
+  </van-row>
+
    <van-row>
-    <navigator url="../account/help/help">
-
-      <van-cell title="意见反馈" icon="info-o" is-link />
-
-    </navigator>
+      <van-cell title="意见反馈" icon="info-o" url="feedback/feedback" is-link />
   </van-row>
-    <van-row>
-    <navigator url="../account/help/help">
 
-      <van-cell title="联系客服" icon="service-o" is-link />
-
-    </navigator>
-  </van-row>
 
 </van-row>

@@ -14,23 +14,13 @@ Page({
    */
   onLoad: function (options) {
     // 判断是否登录
-    try {
-      const value = wx.getStorageSync('bmob')
-      if (value) {
-        console.log("登录状态");
-        // Do something with return value
-      } else {
-        console.log("未登录状态");
-        wx.hideNavigationBarLoading();
-        App._doLogin();
-      }
-    } catch (e) {
-      console.log(e);
-      // Do something when catch error
-    }
-
+    var that = this;
+    var obj = App._isLogin();
+    console.log(obj)
+    that.setData({
+      userInfo: obj
+    })
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

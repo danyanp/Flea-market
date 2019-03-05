@@ -111,7 +111,7 @@
     - 活动详情
 ---
 ## 5.开发阶段
-
+[开发文档](https://github.com/danyanp/Flea-market/blob/master/Developing.md)
 ---
 ## 6.工程目录
 ---
