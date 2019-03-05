@@ -1,1 +1,15 @@
 /**app.wxss**/
+/**app.wxss**/
+@import 'style/weui.wxss';
+
+.container, input {
+  font-family: PingFang-Medium,
+                 PingFangSC-Regular,
+                 Heiti,
+                 Heiti SC,
+                 DroidSans,
+                 DroidSansFallback,
+                 "Microsoft YaHei",
+                 sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

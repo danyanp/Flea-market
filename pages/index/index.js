@@ -12,6 +12,7 @@ Page({
     pagination: 0, //页码
     pageSize: 10, //每页数据
     nodata: true, //无数据
+    floorstatus: false, // 返回顶部
   },
 
   /**
@@ -21,6 +22,22 @@ Page({
     var that = this;
     that.ListsetData();
   },
+  /**
+ * 返回顶部
+ */
+  goTop: function (t) {
+    this.setData({
+      scrollTop: 0
+    });
+  },
+  /**
+ * 显示/隐藏 返回顶部按钮
+ */
+  scroll: function (e) {
+    this.setData({
+      floorstatus: e.detail.scrollTop > 200
+    })
+  },
   ListsetData:function(){
     var that = this;
     const query = Bmob.Query("goods");
@@ -28,7 +45,7 @@ Page({
     query.limit(that.data.pageSize);
     //分页查询
     query.skip(that.data.pageSize * that.data.pagination);
-    query.order('orderid');
+    query.order('-orderid');
     query.find().then(res => {
       console.log(res)
       //判断是否有数据返回
@@ -44,7 +61,11 @@ Page({
 
         //此处用于判断是首次渲染数据还是下拉加载渲染数据
         pagination = pagination ? pagination + 1 : 1;
-
+        wx.showToast({
+          title: '数据加载中',
+          icon: 'loading',
+          duration: 1000
+        });
         //更新数据
         this.setData({
           data: goods,
@@ -59,10 +80,11 @@ Page({
       }
     });
   },
-  onReachBottom() {
+  toLowFun:function() {
     // 下拉触底，先判断是否有请求正在进行中
     // 以及检查当前请求页数是不是小于数据总页数，如符合条件，则发送请求
     var that = this;
+ 
     that.ListsetData();
     console.log("到底了")
 
