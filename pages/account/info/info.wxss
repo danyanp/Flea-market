@@ -1,0 +1,4 @@
+/* pages/account/info/info.wxss */
+.cell{
+  margin: 20px;
+}

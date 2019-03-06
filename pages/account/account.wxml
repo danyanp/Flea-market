@@ -1,15 +1,20 @@
 <van-row>
 <view class='cell'>
   <!-- 圆角头像+个人信息 -->
-<navigator>
+<navigator url="info/info">
  <van-row gutter="20">
     <van-col span="8">
       <view class="header-bg">
         <open-data type="userAvatarUrl"></open-data>
       </view>
     </van-col>
-    <van-col span="16">
+    <van-col span="13">
       <view class='name'>{{userInfo.username}}</view>
+    </van-col>
+     <van-col span="3">
+     <view class='name' style='margin-top: 48rpx;'>
+        <van-icon color="#A9A9A9" name="arrow" />
+     </view>
     </van-col>
   </van-row>
 </navigator>

@@ -5,6 +5,7 @@ page {
 }
 .cell{
   background-color: #ffffff;
+  padding:20rpx;
 }
 
 .header-bg{

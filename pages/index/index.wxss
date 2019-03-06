@@ -1,7 +1,7 @@
 /**index.wxss**/
 .card{
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
 /* pages/send/send.wxss */
 

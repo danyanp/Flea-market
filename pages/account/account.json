@@ -5,6 +5,7 @@
       "van-col": "../../style/dist/col/index",
       "van-cell": "../../style/dist/cell/index",
       "van-cell-group": "../../style/dist/cell-group/index",
-      "van-card": "../../style/dist/card/index"
+      "van-card": "../../style/dist/card/index",
+      "van-icon": "../../style/dist/icon/index"
     }
 }

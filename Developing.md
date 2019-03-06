@@ -4,8 +4,9 @@
 - ### UI 引入[youzan](https://github.com/youzan/vant-weapp)(Github)
 - ### UI 引入[WeiUI](https://github.com/Tencent/weui-wxss/)(Github)
 - ### 颜色管理
-   - 背景色#EFEFEF
+   - 背景色 灰白色 #f8f8f8 
    - 基础色
+      - 灰色 #EFEFEF
       - 白色 #FFFFFF
       - 蓝色 #1296db
       - 红色 #E64340
@@ -60,6 +61,8 @@
    - 交易方式
    - 客服按钮
 - ### 7.个人中心
+   - 个人信息
+      - 更改用户名
    - 我的发布
    - 我的帮助
    - 意见反馈

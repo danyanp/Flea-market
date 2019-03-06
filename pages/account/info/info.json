@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "修改信息",
+  "usingComponents": {
+    "van-field": "../../../style/dist/field/index",
+    "van-toast": "../../../style/dist/toast/index"
+  }  
+}

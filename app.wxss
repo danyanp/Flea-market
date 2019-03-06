@@ -13,3 +13,7 @@
                  sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+page{
+  background-color: #f8f8f8;
+}

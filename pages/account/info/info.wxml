@@ -1,0 +1,19 @@
+<!--pages/account/info/info.wxml-->
+<van-toast id="van-toast" />
+<view class='cell'>
+<form bindsubmit="formSubmit">
+<van-cell-group>
+  <van-field
+    value="{{ info.username }}"
+    placeholder="请输入用户名"
+    name = "username"
+    required
+    clearable
+    maxlength="17"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<button class="weui-btn" type="warn" size="large" form-type="submit">提交修改</button>
+</form>
+</view>

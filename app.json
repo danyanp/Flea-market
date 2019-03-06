@@ -6,6 +6,7 @@
     "pages/account/release/release",
     "pages/account/help/help",
     "pages/account/feedback/feedback",
+    "pages/account/info/info",
     "pages/login/login",
     "pages/detail/detail",
     "pages/msg/msg_success",
