@@ -8,6 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    files: [],
+    data: [], //页面数据
+    pagination: 0, //页码
+    pageSize: 10, //每页数据
+    nodata: true, //无数据
+    floorstatus: false, // 返回顶部
 
   },
 
@@ -21,11 +27,14 @@ Page({
     const query = Bmob.Query("WhoWant");
     query.equalTo("user_id", "==", obj);
     query.equalTo("iwant", "==", 1);
+    query.include('good_id')
     query.find().then(res => {
       console.log(res)
       that.setData({
         data: res
       })
     });
+
+
   }
 })

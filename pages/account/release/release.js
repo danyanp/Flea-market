@@ -22,11 +22,9 @@ Page({
   onLoad: function (options) {
     var that = this;
     var obj = App._isLogin().objectId;
-    console.log(obj)
     const query = Bmob.Query("goods");
     query.equalTo("User_id", "==", obj);
     query.find().then(res => {
-      console.log(res)
       that.setData({
         data:res
       })
@@ -36,16 +34,13 @@ Page({
       this.onLoad();
     },
     del:function(e){
-      console.log(e);
       var objectId = e.target.id;
       const query = Bmob.Query('goods');
       query.destroy(objectId).then(res => {
-        console.log(res)
         Toast.success('删除成功');
         this.onShow();
       }).catch(err => {
         Toast.fail('删除失败');
-        console.log(err)
       })
     }
 

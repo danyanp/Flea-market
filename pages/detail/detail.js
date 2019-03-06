@@ -10,42 +10,43 @@ Page({
    */
   data: {
     detail: {},
-    iwant:"",
-    isiwant:0,
-    show:false,
+    iwant: "",
+    isiwant: 0,
+    show: false,
     name: 'fade',
     showCustom: false
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this; 
+  onLoad: function(options) {
+    var that = this;
     objectId = options.goods_id;
     //判断是否登录，并提取objectid
     var obj = App._isLogin().objectId;
     //查询是否想要
     const querywho = Bmob.Query('WhoWant');
     querywho.equalTo("iwant", "==", 1);
-    querywho.equalTo("good_id", "==",objectId)
+    querywho.equalTo("good_id", "==", objectId)
     querywho.equalTo("user_id", "==", obj)
     querywho.find().then(res => {
       console.log(res.length)
-      if(res.length==0){
+      if (res.length == 0) {
         console.log("想要")
         that.setData({
-          iwant:"想要"
+          iwant: "想要"
         })
-      }else{
+      } else {
         console.log("已经想要")
         that.setData({
           iwant: "已经想要",
-          isiwant:1
+          isiwant: 1
         })
       }
       console.log(res)
     });
-  //  获取物品详情
+
+    // 获取物品详情
     const query = Bmob.Query('goods');
     query.get(objectId).then(res => {
       that.setData({
@@ -55,12 +56,11 @@ Page({
       console.log(err)
     })
   },
-  
+
   // 点击按钮
-  onClickButton: function (e) {
+  onClickButton: function(e) {
     console.log(e)
     var that = this;
-
     const query = Bmob.Query('goods')
     query.get(objectId).then(res => {
       res.increment('wantnum')
@@ -69,41 +69,44 @@ Page({
       console.log(err)
     })
 
-
-    if (e.target.id == "activitydetails"){
+    if (e.target.id == "activitydetails") {
       wx.switchTab({
         url: '../ActivityDetails/ActivityDetails'
       })
-    }else{
-      that.setData({ showCustom: true });
+    } else {
+      //爱心动画
+      that.setData({
+        showCustom: true
+      });
       setTimeout(() => {
-        that.setData({ showCustom: false });
+        that.setData({
+          showCustom: false
+        });
       }, 500);
       //判断是否已经想要
-      if(this.data.isiwant==0){
-        //判断是否登录，并提取objectid
-        var obj = App._isLogin().objectId;
-        const relation1 = Bmob.Relation('_User')
-        const user_id = relation1.add(obj)
-        const relation2 = Bmob.Relation('goods')
-        const good_id = relation2.add(objectId)
-        const query = Bmob.Query('WhoWant');
-        query.set('user_id', user_id);
-        query.set('good_id', good_id);
-        query.set('iwant', 1);
-        query.save().then(res => {
-          console.log(res)
-          that.setData({
-            iwant: "已经想要"
-          })
-        }).catch(err => {
-          console.log(err)
-        })
-      }else{
+      if (this.data.isiwant != 0) {
         Toast.fail('已经想要了');
+        return false;
       }
+      //判断是否登录，并提取objectid
+      var obj = App._isLogin().objectId;
 
-
+      const pointer1 = Bmob.Pointer('_User')
+      const user_id = pointer1.set(obj)
+      const pointer2 = Bmob.Pointer('_User')
+      const good_id = pointer2.set(objectId)
+      const query = Bmob.Query('WhoWant');
+      query.set('user_id', user_id);
+      query.set('good_id', good_id);
+      query.set('iwant', 1);
+      query.save().then(res => {
+        console.log(res)
+        that.setData({
+          iwant: "已经想要"
+        })
+      }).catch(err => {
+        console.log(err)
+      })
     }
   },
 })
