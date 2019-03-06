@@ -32,5 +32,21 @@ Page({
       })
     });
   },
+    onShow:function(){
+      this.onLoad();
+    },
+    del:function(e){
+      console.log(e);
+      var objectId = e.target.id;
+      const query = Bmob.Query('goods');
+      query.destroy(objectId).then(res => {
+        console.log(res)
+        Toast.success('删除成功');
+        this.onShow();
+      }).catch(err => {
+        Toast.fail('删除失败');
+        console.log(err)
+      })
+    }
 
 })

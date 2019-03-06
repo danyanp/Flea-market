@@ -3,3 +3,8 @@
   padding-top: 5rpx;
   padding-bottom: 5rpx;
 }
+.cell{
+  text-align: center;
+  padding: 20px;
+  color:#A9A9A9;
+}
