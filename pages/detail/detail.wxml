@@ -104,6 +104,7 @@
 
   <van-goods-action-button 
   id = "iwant"
+  disabled ="{{btniswant}}"
   text="{{iwant}}" 
   bind:click="onClickButton" 
   />

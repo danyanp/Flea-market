@@ -3,7 +3,6 @@ var Bmob = require('../../utils/Bmob-1.6.7.min.js')
 import Toast from '../../style/dist/toast/toast';
 var objectId;
 // 判断第几次点击按钮
-var onclick = true;
 let App = getApp();
 Page({
 
@@ -16,7 +15,8 @@ Page({
     isiwant: 1,
     show: false,
     name: 'fade',
-    showCustom: false
+    showCustom: false,
+    btniswant:false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -91,13 +91,11 @@ Page({
           showCustom: false
         });
       }, 500);
-      console.log(onclick) 
       //判断是否已经想要
-      if (this.data.isiwant != 0 || onclick!=true) {
+      if (this.data.isiwant != 0) {
         Toast.fail('已经想要了');
         return false;
       }
-      onclick = false;
       //判断是否登录，并提取objectid
       var obj = App._isLogin().objectId;
       const pointer1 = Bmob.Pointer('_User')
@@ -110,8 +108,8 @@ Page({
       query.set('iwant', 1);
       query.save().then(res => {
         console.log(res)
-       
         that.setData({
+          btniswant:true,
           iwant: "已经想要"
         })
       }).catch(err => {

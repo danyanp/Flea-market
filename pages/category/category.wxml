@@ -1,0 +1,44 @@
+<van-toast id="van-toast" />
+<view class='top'></view>
+<view class="book-box">
+<!-- 左侧 -->
+  <scroll-view class='swipter-nav' scroll-y="true" style="height:{{winHeight}}px; width:200rpx">
+    <view class="swiper-vertical-tab">
+      <view wx:for="{{good}}" wx:key="item" class="{{currentTab==item.id ? 'on' : ''}}"  bindtap="chooseType" data-foodtype="{{item.id}}">
+      {{item.foodType}}
+      </view> 
+    </view>
+  </scroll-view>
+<!-- 右侧 -->
+  <scroll-view class="swiper-vertical-box" scroll-y="true" style="height:{{winHeight}}px;width:200rpx">
+    <view  wx-if="{{currentTab==item.id}}" class="vertical-list" wx:for="{{good}}" wx:key="foodType" wx:for-index="idx"> 
+      <view class="title">{{item.foodType}} 
+      <view style='float:right;margin-right: 10px;'>查看全部
+        <van-icon color="#A9A9A9" name="arrow-down" />
+      </view>
+      </view>
+      <block wx:if="{{item.data.length}}">
+        <view class="type-detail">
+          <view wx:for="{{item.data}}" wx:key="foodDetail" wx:for-index="jdx">
+            <navigator  url="../detail/detail?goods_id={{item.objectId}}">
+              <image src="{{item.goodpicture.url}}!/fxfn/100x100" mode="aspectFill"></image>
+              <view class="book-detail">
+                <text>{{item.goodname}}</text>
+                <view>
+                    <text class="money">￥{{item.goodprice}}</text>
+                    <!-- <view class="operations smallsize">
+                        销量：{{item.sale_number}}
+                    </view> -->
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+          <view class='noshop'>暂无商品</view>
+      </block>
+    </view>
+  </scroll-view>
+
+</view>  

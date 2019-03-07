@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "van-button": "../../style/dist/button/index",
-    "van-field": "../../style/dist/field/index",
-    "van-toast": "../../style/dist/toast/index"
-  }
-}

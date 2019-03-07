@@ -1,7 +1,6 @@
 //引入Bomb
 var Bmob = require('utils/Bmob-1.6.7.min.js')
 Bmob.initialize("1bacb4177d73bf9bb5f28c6329d22bd4", "ed4734ed7ea6aa6516ac32028cf15bb4");
-
 //app.js
 App({
   onLaunch: function () {

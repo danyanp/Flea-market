@@ -7,12 +7,12 @@
     "pages/account/help/help",
     "pages/account/feedback/feedback",
     "pages/account/info/info",
+    "pages/category/category",
     "pages/login/login",
     "pages/detail/detail",
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
     "pages/ActivityDetails/ActivityDetails",
-    "pages/send/send",
     "pages/logs/logs"
   ],
   "window": {
@@ -34,6 +34,12 @@
         "text": "首页"
       },
       {
+          "pagePath": "pages/category/category",
+          "iconPath": "images/icon_category.png",
+          "selectedIconPath": "images/icon_category_selected.png",
+          "text": "分类"
+      },
+      {
          "pagePath": "pages/ActivityDetails/ActivityDetails",
          "iconPath": "images/icon_detail.png",
          "selectedIconPath": "images/icon_detail_selected.png",
@@ -46,5 +52,9 @@
         "text": "我的"
       }
     ]
+  },
+  "usingComponents": {
+        "van-search": "style/dist/search/index"
   }
+
 }
