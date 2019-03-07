@@ -22,14 +22,18 @@ Page({
     var that = this;
     that.ListsetData();
   },
-  /**
+/**
  * 返回顶部
  */
   goTop: function (t) {
     this.setData({
       scrollTop: 0
     });
+    //this.onShow();
   },
+  // onShow:function(){
+  //   this.onLoad();
+  // },
   /**
  * 显示/隐藏 返回顶部按钮
  */

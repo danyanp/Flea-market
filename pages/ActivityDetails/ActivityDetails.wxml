@@ -3,25 +3,25 @@
 
 <!-- 活动详情  -->
 <view class="panelstyle">
-  <van-panel title="1.阶段一" desc=" 商品信息收集">
-    <view class="paneltext">商品信息收集</view>
+  <van-panel title="1.阶段一" desc=" 信息收集">
+    <view class="paneltext">信息收集</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="1.阶段一" desc=" 商品信息收集">
-    <view class="paneltext">商品信息收集</view>
+  <van-panel title="2.阶段二" desc=" 浏览展示">
+    <view class="paneltext">浏览展示</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="1.阶段一" desc=" 商品信息收集">
-    <view class="paneltext">商品信息收集</view>
+  <van-panel title="3.阶段三" desc=" 物品收集">
+    <view class="paneltext">物品收集</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="1.阶段一" desc=" 商品信息收集">
-    <view class="paneltext">商品信息收集</view>
+  <van-panel title="4.阶段四" desc=" 线下跳蚤市场">
+    <view class="paneltext">线下跳蚤市场</view>
   </van-panel>
 </view>

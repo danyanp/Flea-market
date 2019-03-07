@@ -2,6 +2,7 @@
 var Bmob = require('../../../utils/Bmob-1.6.7.min.js')
 import Toast from '../../../style/dist/toast/toast';
 let App = getApp();
+var obj
 Page({
 
   /**
@@ -19,29 +20,45 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
-    var obj = App._isLogin().objectId;
+    obj = App._isLogin().objectId;
     const query = Bmob.Query("goods");
     query.equalTo("User_id", "==", obj);
     query.find().then(res => {
       that.setData({
-        data:res
+        data: res
       })
     });
   },
-    onShow:function(){
-      this.onLoad();
-    },
-    del:function(e){
-      var objectId = e.target.id;
-      const query = Bmob.Query('goods');
-      query.destroy(objectId).then(res => {
-        Toast.success('删除成功');
-        this.onShow();
-      }).catch(err => {
-        Toast.fail('删除失败');
+  onShow: function() {
+    this.onLoad();
+  },
+  del: function(e) {
+    // 删除goods表中的商品
+    var objectId = e.target.id;
+    const query = Bmob.Query('goods');
+    query.destroy(objectId).then(res => {
+
+      // 删除WhoWant中
+      const query = Bmob.Query('WhoWant');
+      query.equalTo("good_id", "==", objectId);
+      query.find().then(todos => {
+        console.log(todos.length)
+        if (todos.length != 0) {
+          todos.destroyAll().then(res => {
+            // 成功批量修改
+            console.log(res, 'ok')
+          }).catch(err => {
+            console.log(err)
+          });
+        }
       })
-    }
+      Toast.success('删除成功');
+      this.onShow();
+    }).catch(err => {
+      Toast.fail('删除失败');
+    })
+  },
 
 })

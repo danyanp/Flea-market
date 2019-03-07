@@ -2,6 +2,8 @@
 var Bmob = require('../../utils/Bmob-1.6.7.min.js')
 import Toast from '../../style/dist/toast/toast';
 var objectId;
+// 判断第几次点击按钮
+var onclick = true;
 let App = getApp();
 Page({
 
@@ -11,7 +13,7 @@ Page({
   data: {
     detail: {},
     iwant: "",
-    isiwant: 0,
+    isiwant: 1,
     show: false,
     name: 'fade',
     showCustom: false
@@ -30,11 +32,11 @@ Page({
     querywho.equalTo("good_id", "==", objectId)
     querywho.equalTo("user_id", "==", obj)
     querywho.find().then(res => {
-      console.log(res.length)
       if (res.length == 0) {
         console.log("想要")
         that.setData({
-          iwant: "想要"
+          iwant: "想要",
+          isiwant: 0
         })
       } else {
         console.log("已经想要")
@@ -43,16 +45,22 @@ Page({
           isiwant: 1
         })
       }
-      console.log(res)
     });
 
     // 获取物品详情
     const query = Bmob.Query('goods');
     query.get(objectId).then(res => {
+      console.log(res)
       that.setData({
         detail: res
       })
     }).catch(err => {
+      Toast.fail('加载错误！');
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '../../../../index/index',
+        })
+      }, 1000)
       console.log(err)
     })
   },
@@ -83,14 +91,15 @@ Page({
           showCustom: false
         });
       }, 500);
+      console.log(onclick) 
       //判断是否已经想要
-      if (this.data.isiwant != 0) {
+      if (this.data.isiwant != 0 || onclick!=true) {
         Toast.fail('已经想要了');
         return false;
       }
+      onclick = false;
       //判断是否登录，并提取objectid
       var obj = App._isLogin().objectId;
-
       const pointer1 = Bmob.Pointer('_User')
       const user_id = pointer1.set(obj)
       const pointer2 = Bmob.Pointer('_User')
@@ -101,6 +110,7 @@ Page({
       query.set('iwant', 1);
       query.save().then(res => {
         console.log(res)
+       
         that.setData({
           iwant: "已经想要"
         })
