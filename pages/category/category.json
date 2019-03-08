@@ -2,6 +2,7 @@
   "navigationBarTitleText": "物品分类",
   "usingComponents": {
       "van-icon": "../../style/dist/icon/index",
-      "van-toast": "../../style/dist/toast/index"
+      "van-toast": "../../style/dist/toast/index",
+      "van-card": "../../style/dist/card/index"
   }
 }

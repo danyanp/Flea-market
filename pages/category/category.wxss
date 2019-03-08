@@ -1,6 +1,7 @@
 /* pages/category/category.wxss */
 
 page {
+  border-top: 2px solid #f8f8f8;
   background: #f0f0f0;
   font-family: "微软雅黑",
                  Helvetica,
@@ -13,6 +14,10 @@ page {
                  "Microsoft Yahei",
                  sans-serif;
   background: #fff;
+}
+.card{
+  margin-bottom: 10rpx;
+  margin-top: 5rpx;
 }
 .top{
   background-color: #f8f8f8;
@@ -124,7 +129,7 @@ page {
   border-bottom: 1px solid #e5e5e5;
   margin-left: 10px;
   overflow: hidden;
-  padding-left: 80px;
+  /* padding-left: 80px; */
   box-sizing: border-box;
   position: relative;
   height: 92px;

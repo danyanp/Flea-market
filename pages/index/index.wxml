@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <!-- 顶部tab标签 -->
 <van-toast id="van-toast" />
-<van-tabs type="card" color="#1296db">
+<van-tabs type="card" color="#1989fa" bind:click="tabOnClik">
   <!-- 1.已经发布 -->
   <van-tab title="已经发布">
    <view wx:if="{{data!=0}}">
@@ -98,9 +98,32 @@
     bind:click-icon="onClickIcon"
   />
   </view>
+
+  <!-- 物品分类 -->
+  <view class='cell'>
+      <van-popup
+        show="{{ bottom }}"
+        position="bottom"
+        bind:close="togglePopup"
+      >
+      <van-picker
+        show-toolbar
+        columns="{{ column }}"
+        bind:cancel="onCancel"
+        bind:confirm="onConfirm"
+      />
+      </van-popup>
+      <van-cell
+        required
+        title="物品分类"
+        value="{{value}}"
+        bind:click="togglePopup"
+        is-link
+      />
+  </view>
 <!-- 图片上传 -->
   <view class='cell '>
-        <view class="weui-cells">
+        <view class="weui-cells" style='margin-top: 0px;'>
             <view class="weui-cell">
                 <view class="weui-cell_bd">
                     <view class="weui-uploader">

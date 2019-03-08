@@ -1,7 +1,7 @@
 /**index.wxss**/
 .card{
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
 }
 /* pages/send/send.wxss */
 
@@ -16,13 +16,13 @@ button[type=warn] {
 }
 
 .cell {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .weui-cells {
   position: relative;
-  margin-top: 1.17647059em;
+  margin-top: 0px;
   background-color: #fff;
   line-height: 1.41176471;
   font-size: 17px;

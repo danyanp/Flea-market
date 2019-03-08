@@ -100,7 +100,7 @@ Page({
       var obj = App._isLogin().objectId;
       const pointer1 = Bmob.Pointer('_User')
       const user_id = pointer1.set(obj)
-      const pointer2 = Bmob.Pointer('_User')
+      const pointer2 = Bmob.Pointer('goods')
       const good_id = pointer2.set(objectId)
       const query = Bmob.Query('WhoWant');
       query.set('user_id', user_id);

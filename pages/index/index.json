@@ -7,6 +7,12 @@
     "van-tabs": "../../style/dist/tabs/index",
     "van-field": "../../style/dist/field/index",
     "van-toast": "../../style/dist/toast/index",
-    "van-icon": "../../style/dist/icon/index"
+    "van-icon": "../../style/dist/icon/index",
+
+
+    "van-picker": "../../style/dist/picker/index",
+    "van-popup": "../../style/dist/popup/index",
+    "van-cell": "../../style/dist/cell/index",
+    "van-cell-group": "../../style/dist/cell-group/index"
   }
 }

@@ -1,5 +1,4 @@
 <van-toast id="van-toast" />
-<view class='top'></view>
 <view class="book-box">
 <!-- 左侧 -->
   <scroll-view class='swipter-nav' scroll-y="true" style="height:{{winHeight}}px; width:200rpx">
@@ -19,7 +18,22 @@
       </view>
       <block wx:if="{{item.data.length}}">
         <view class="type-detail">
-          <view wx:for="{{item.data}}" wx:key="foodDetail" wx:for-index="jdx">
+
+  <view class='card' wx:for="{{item.data}}" wx:key="data">
+        <navigator hover-class="none" url="../detail/detail?goods_id={{item.objectId}}">
+          <van-card 
+            tag="{{item.tag}}" 
+            price="{{item.goodprice}}" 
+            title="{{item.goodname}}" 
+            thumb="{{item.goodpicture.url}}"
+          >
+            <view slot="footer">
+              <van-button round type="danger"  size="mini">查看</van-button>
+            </view>
+          </van-card>
+        </navigator>
+      </view>
+          <!-- <view wx:for="{{item.data}}" wx:key="foodDetail" wx:for-index="jdx">
             <navigator  url="../detail/detail?goods_id={{item.objectId}}">
               <image src="{{item.goodpicture.url}}!/fxfn/100x100" mode="aspectFill"></image>
               <view class="book-detail">
@@ -28,11 +42,11 @@
                     <text class="money">￥{{item.goodprice}}</text>
                     <!-- <view class="operations smallsize">
                         销量：{{item.sale_number}}
-                    </view> -->
+                    </view> 
                 </view>
               </view>
             </navigator>
-          </view>
+          </view>-->
         </view>
       </block>
       <block wx:else>

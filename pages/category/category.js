@@ -65,7 +65,6 @@ Page({
         good: res,
         currentTab: res[0].id,//第一个tab
       })
-      console.log(this.data.good);
     });
   },
 

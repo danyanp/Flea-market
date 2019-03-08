@@ -2,6 +2,7 @@ import Toast from '../../style/dist/toast/toast';
 var Bmob = require('../../utils/Bmob-1.6.7.min.js')
 //index.js
 //获取应用实例
+var typeArray = [];
 let App = getApp()
 
 Page({
@@ -13,8 +14,13 @@ Page({
     pageSize: 10, //每页数据
     nodata: true, //无数据
     floorstatus: false, // 返回顶部
+    // 分类
+    bottom: false,
+    column: [],
+    value: [],
+    categoryobjectId:0,
+    tabOnClik:true
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,6 +28,67 @@ Page({
     var that = this;
     that.ListsetData();
   },
+  //tab点击事件
+  tabOnClik:function(e){
+    var that = this;
+    if (e.detail.index != 0){
+      that.setCategory()
+    }
+  },
+
+  // 物品分类
+  setCategory:function(e){
+    var that = this;
+    // 加载分类
+    let column = [];
+    if(typeArray.length!=0){
+      for (let obj of typeArray) {
+        column.push(obj.name);
+      }
+        that.setData({
+          column: column
+        })
+      return false;
+    }
+    const query = Bmob.Query("good_category");
+    query.find().then(result => {
+      for (let object of result) {
+        typeArray.push({
+          id: object.category,
+          name: object.name,
+          objectId: object.objectId
+        })
+      }
+      for(let obj of typeArray){
+        column.push(obj.name);
+      }
+      that.setData({
+        column: column
+      })
+      
+  })
+  },
+  onCancel() {
+    Toast('取消');
+    this.setData({
+      bottom: !this.data.bottom
+    });
+  },
+  onConfirm(event) {
+    const { value, index } = event.detail;
+    this.setData({
+      categoryobjectId:typeArray[index].objectId,
+      value: value,
+      bottom: !this.data.bottom
+    });
+  },
+  togglePopup: function () {
+    var that = this;
+    that.setData({
+      bottom: !this.data.bottom
+    });
+  },
+
 /**
  * 返回顶部
  */
@@ -163,8 +230,10 @@ Page({
     var phonenum = Number(e.detail.value.phonenum);
     var classnum = e.detail.value.classnum;
     var pic = value;
-
-    if (!pic | !goodname | !goodprice | !username | !phonenum | !classnum) {
+    var category = that.data.categoryobjectId;
+    console.log(category)   
+    
+    if (!pic | !goodname | !goodprice | !username | !phonenum | !classnum | !category) {
       Toast('亲，打*号的为必填项');
       return false;
     }
@@ -185,8 +254,12 @@ Page({
       // Do something when catch error
     }
 
-    const relation = Bmob.Relation('_User')
-    const relID = relation.add(obj)
+    const relation1 = Bmob.Relation('_User')
+    const relID = relation1.add(obj)
+
+    const pointer1 = Bmob.Pointer('good_category')
+    const category_id = pointer1.set(category)
+
     const query = Bmob.Query('goods');
     query.set('User_id', relID);
     query.set("goodname", goodname)
@@ -196,6 +269,7 @@ Page({
     query.set("phonenum", phonenum)
     query.set("classnum", classnum)
     query.set('goodpicture', pic)
+    query.set('category_id', category_id)
     query.save().then(res => {
       // 清除缓存
       wx.removeStorage({
