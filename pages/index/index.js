@@ -18,8 +18,13 @@ Page({
     bottom: false,
     column: [],
     value: [],
+
     categoryobjectId:0,
-    tabOnClik:true
+    tabOnClik:true,
+
+    Departmentbottom: false,
+    Departmentvalue:[],
+    Departmentcolumn: ['商院', '环药', '智能制造', '外国语', '移动互联网']
   },
   /**
    * 生命周期函数--监听页面加载
@@ -85,6 +90,25 @@ Page({
     var that = this;
     that.setData({
       bottom: !this.data.bottom
+    });
+  },
+  DepartmentonCancel() {
+    Toast('取消');
+    this.setData({
+      Departmentbottom:!this.data.Departmentbottom
+    });
+  },
+   DepartmentonConfirm(event) {
+    const { value, index } = event.detail;
+    this.setData({
+      Departmentvalue: value,
+      Departmentbottom: !this.data.Departmentbottom
+    });
+  },
+   DepartmenttogglePopup: function () {
+    var that = this;
+    that.setData({
+      Departmentbottom: !this.data. Departmentbottom
     });
   },
 
@@ -156,7 +180,6 @@ Page({
     console.log("到底了")
 
   },
-
   //下拉刷新
   onPullDownRefresh() {
     var that = this;
@@ -230,8 +253,12 @@ Page({
     var classnum = e.detail.value.classnum;
     var pic = value;
     var category = that.data.categoryobjectId;
-    console.log(category)   
-    
+    var Department = that.data.Departmentvalue;
+    console.log(classnum)  
+    if (Department.length==0){
+      Toast('亲，院系为必填项');
+      return false;1
+    } 
     if (!pic | !goodname | !goodprice | !username | !phonenum | !classnum | !category) {
       Toast('亲，打*号的为必填项');
       return false;
@@ -269,6 +296,7 @@ Page({
     query.set("classnum", classnum)
     query.set('goodpicture', pic)
     query.set('category_id', category_id)
+    query.set('department', Department)
     query.save().then(res => {
       // 清除缓存
       wx.removeStorage({

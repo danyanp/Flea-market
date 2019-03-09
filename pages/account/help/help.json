@@ -1,3 +1,7 @@
 {
-    "navigationBarTitleText": "帮助"
+    "navigationBarTitleText": "帮助",
+    "usingComponents": {
+      "van-collapse": "../../../style/dist/collapse/index",
+      "van-collapse-item": "../../../style/dist/collapse-item/index"
+    }
 }

@@ -13,6 +13,7 @@
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
     "pages/ActivityDetails/ActivityDetails",
+    "pages/ActivityDetails/info/info",
     "pages/logs/logs"
   ],
   "window": {

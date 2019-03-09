@@ -13,7 +13,7 @@ symbol-style="{{symbol_style}}">
 <van-steps steps="{{ steps }}" active="{{ active }}" active-color=
 "#1989fa" />
 
-<van-cell value="" icon="info-o" is-link>
+<van-cell value="" icon="info-o" url="info/info" is-link>
     <view slot="title">
       <view class="title">关于南泰青协志愿者协会</view>
       <van-tag type="danger">青协</van-tag>

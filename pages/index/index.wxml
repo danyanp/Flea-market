@@ -157,7 +157,6 @@
     placeholder="请输入姓名"
     bind:click-icon="onClickIcon"
   />
-
  <van-field
     name="phonenum"
     id = "phonenum"
@@ -183,6 +182,27 @@
     icon="question-o"
     placeholder="请输入宿舍号"
     bind:click-icon="onClickIcon"
+  />
+
+  <!-- 那个系 -->
+  <van-popup
+    show="{{  Departmentbottom }}"
+    position="bottom"
+    bind:close=" DepartmenttogglePopup"
+  >
+  <van-picker
+    show-toolbar
+    columns="{{ Departmentcolumn }}"
+    bind:cancel="DepartmentonCancel"
+    bind:confirm="DepartmentonConfirm"
+  />
+  </van-popup>
+  <van-cell
+    required
+    title="院系"
+    value="{{Departmentvalue}}"
+    bind:click="DepartmenttogglePopup"
+    is-link
   />
 </van-cell-group>
   </view>

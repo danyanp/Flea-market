@@ -1,10 +1,8 @@
-<view class="container">
-  <view class="help cont-box b-f" wx:for="{{list}}" wx:key="this">
-    <view>
-      <text class="h4">{{item.title}}</text>
-    </view>
-    <view>
-      <text class="p">{{item.content}}</text>
-    </view>
-  </view>
-</view>
+<van-collapse value="{{ active1 }}" data-key="active1" bind:change="onChange">
+
+    <van-collapse-item title="{{ title1 }}">{{ content1 }}</van-collapse-item>
+
+    <van-collapse-item title="{{ title2 }}">{{ content2 }}</van-collapse-item>
+
+    <van-collapse-item title="{{ title3 }}">{{ content3 }}</van-collapse-item>
+</van-collapse>
