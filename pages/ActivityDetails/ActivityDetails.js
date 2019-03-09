@@ -1,10 +1,10 @@
-// pages/ActivityDetails/ActivityDetails.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    '__code__': {
+      readme: ''
+    },
+    num_style:"width: 48rpx; font-size: 28rpx; color: #fff; background: #000; text-align: center; border-radius: 8rpx; padding: 5rpx 0;",
+    symbol_style:"font-size: 28rpx;color: #000;padding: 0 12rpx;",
     steps: [
       {
         text: '阶段一',
@@ -22,62 +22,24 @@ Page({
         text: '阶段四',
         desc: '线下购买阶段'
       }
-    ]
+    ],
+    active1: [0],
+    title1: '1.阶段一',
+    title2: '2.阶段二',
+    title3: '3.阶段三',
+    title4: '4.阶段四',
+    content1: '信息收集',
+    content2: '浏览展示',
+    content3: '物品收集',
+    content4: '线下跳蚤市场',
+    countdown: 1000000
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  methods: {},
+  onChange(event) {
+    const { key } = event.currentTarget.dataset;
+    this.setData({
+      [key]: event.detail
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+  onLoad:function(){}
+});

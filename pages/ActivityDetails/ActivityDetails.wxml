@@ -1,27 +1,65 @@
+<view class="placeholder">距离青协线下跳蚤市场还有</view>
+<view  style="width:100%">
+<view style="">
+<wxc-countdown 
+countdown="{{countdown}}" 
+num-style="{{num_style}}" 
+symbol-style="{{symbol_style}}">
+</wxc-countdown>
+</view>
+</view>
+
 <!-- 活动步骤进度条 -->
-<van-steps steps="{{ steps }}" active="{{ active }}" active-color="#1296db" />
+<van-steps steps="{{ steps }}" active="{{ active }}" active-color=
+"#1989fa" />
+
+<van-cell value="" icon="info-o" is-link>
+    <view slot="title">
+      <view class="title">关于南泰青协志愿者协会</view>
+      <van-tag type="danger">青协</van-tag>
+    </view>
+</van-cell>
+
+  <van-collapse value="{{ active1 }}" data-key="active1" bind:change="onChange" accordion>
+<view class="panelstyle">
+    <van-collapse-item custom-class="panel" title="{{ title1 }}">{{ content1 }}</van-collapse-item>
+</view>
+
+<view class="panelstyle">
+    <van-collapse-item custom-class="panel" title="{{ title2 }}">{{ content2 }}</van-collapse-item>
+</view>
+<view class="panelstyle">
+    <van-collapse-item custom-class="panel" title="{{ title3 }}">{{ content3 }}</van-collapse-item>
+</view>
+<view class="panelstyle">
+    <van-collapse-item custom-class="panel" title="{{ title4 }}">{{ content4 }}</van-collapse-item>
+</view>
+
+  </van-collapse>
+
+
 
 <!-- 活动详情  -->
-<view class="panelstyle">
-  <van-panel title="1.阶段一" desc=" 信息收集">
+<!-- <view class="panelstyle">
+  <van-panel title="1.阶段一" custom-class="panel">
     <view class="paneltext">信息收集</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="2.阶段二" desc=" 浏览展示">
+  <van-panel title="2.阶段二" custom-class="panel">
     <view class="paneltext">浏览展示</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="3.阶段三" desc=" 物品收集">
+  <van-panel title="3.阶段三" custom-class="panel">
     <view class="paneltext">物品收集</view>
   </van-panel>
 </view>
 
 <view class="panelstyle">
-  <van-panel title="4.阶段四" desc=" 线下跳蚤市场">
+  <van-panel title="4.阶段四" custom-class="panel">
     <view class="paneltext">线下跳蚤市场</view>
   </van-panel>
-</view>
+</view> -->

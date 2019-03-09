@@ -2,6 +2,14 @@
   "navigationBarTitleText": "活动详情",
   "usingComponents": {
     "van-steps": "../../style/dist/steps/index",
-    "van-panel": "../../style/dist/panel/index"
+    "van-panel": "../../style/dist/panel/index",
+    "van-row": "../../style/dist/row/index",
+    "van-col": "../../style/dist/col/index",
+    "wxc-countdown": "../../style/min/@minui/wxc-countdown/dist/index",
+    "van-collapse": "../../style/dist/collapse/index",
+    "van-collapse-item": "../../style/dist/collapse-item/index",
+    "van-cell": "../../style/dist/cell/index",
+    "van-cell-group": "../../style/dist/cell-group/index",
+    "van-tag": "../../style/dist/tag/index"
   }
 }

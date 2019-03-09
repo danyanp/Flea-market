@@ -35,7 +35,6 @@ Page({
       that.setCategory()
     }
   },
-
   // 物品分类
   setCategory:function(e){
     var that = this;

@@ -15,6 +15,10 @@ page {
                  sans-serif;
   background: #fff;
 }
+.recard{
+  border-radius: 5px;
+  box-shadow:0px 0px 3px 3px#DCDCDC;
+}
 .card{
   margin-bottom: 10rpx;
   margin-top: 5rpx;
