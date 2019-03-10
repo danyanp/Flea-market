@@ -328,10 +328,10 @@ Page({
         Toast('为你的物品，给出一个合理的价格');
         break;
       case 'username':
-        Toast('亲，需要知道你的名字哦，绝对保密');
+        Toast('亲，让别人知道是你');
         break;
       case 'phonenum':
-        Toast('亲，需要知道你的电话号码，联系你哦，绝对保密');
+        Toast('亲，需要知道你的电话号码，联系你哦');
         break;
       case 'classnum':
         Toast('亲，我们会上门收货的哦');

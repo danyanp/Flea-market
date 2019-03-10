@@ -12,7 +12,7 @@
           <van-card 
             custom-class="recard"
             num="{{item.createdAt}}"
-            tag="{{item.tag}}" 
+            tag="{{item.username}}" 
             price="{{item.goodprice}}" 
             desc="{{item.description}}" 
             title="{{item.goodname}}" 
@@ -188,7 +188,7 @@
   <van-popup
     show="{{  Departmentbottom }}"
     position="bottom"
-    bind:close=" DepartmenttogglePopup"
+    bind:close="DepartmenttogglePopup"
   >
   <van-picker
     show-toolbar
