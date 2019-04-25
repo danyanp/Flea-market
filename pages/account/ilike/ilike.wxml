@@ -33,5 +33,5 @@
 </scroll-view>
 </view>
 <view wx:else>
-<view class="cell">你还有没发布，赶紧去发布吧</view>
+<view class="cell">你还没有想要的</view>
 </view>

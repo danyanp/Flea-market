@@ -32,6 +32,7 @@ Page({
         })
       }
       const good = Bmob.Query("goods");
+      good.order('-orderid');
       good.include("category_id");
       return good.find();
     }).then(result => {

@@ -122,7 +122,7 @@
                 <view class="weui-cell_bd">
                     <view class="weui-uploader">
                         <view class="weui-uploader_hd">
-                            <view class="weui-uploader_title">图片上传</view>
+                            <view class="weui-uploader_title">图片上传（一张）</view>
                             <view class="weui-uploader_info">{{files.length}}/1</view>
                         </view>
                         <view class="weui-uploader_bd">
@@ -164,14 +164,13 @@
     required
     clearable
     maxlength="11"
-    label="电话号码"
+    label="联系方式"
     icon="question-o"
-    type="number"
-    placeholder="请输入号码"
+    placeholder="请输入联系方式"
     bind:click-icon="onClickIcon"
   />
 
-   <van-field
+   <!-- <van-field
     name="classnum"
     id = "classnum"
     value="{{ classnum }}"
@@ -182,10 +181,10 @@
     icon="question-o"
     placeholder="请输入宿舍号"
     bind:click-icon="onClickIcon"
-  />
+  /> -->
 
   <!-- 那个系 -->
-  <van-popup
+  <!-- <van-popup
     show="{{  Departmentbottom }}"
     position="bottom"
     bind:close="DepartmenttogglePopup"
@@ -203,7 +202,7 @@
     value="{{Departmentvalue}}"
     bind:click="DepartmenttogglePopup"
     is-link
-  />
+  /> -->
 </van-cell-group>
   </view>
 <!-- 交易方式 -->

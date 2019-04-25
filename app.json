@@ -14,6 +14,8 @@
     "pages/msg/msg_fail",
     "pages/ActivityDetails/ActivityDetails",
     "pages/ActivityDetails/info/info",
+    "pages/major/major",
+    "pages/about/about",
     "pages/logs/logs"
   ],
   "window": {
@@ -41,10 +43,10 @@
           "text": "分类"
       },
       {
-         "pagePath": "pages/ActivityDetails/ActivityDetails",
+         "pagePath": "pages/about/about",
          "iconPath": "images/icon_detail.png",
          "selectedIconPath": "images/icon_detail_selected.png",
-         "text": "活动"
+         "text": "关于"
       },
       {
         "pagePath": "pages/account/account",

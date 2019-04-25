@@ -1,0 +1,7 @@
+<!--pages/about/about.wxml-->
+<view class='about' style='margin-top:20px;'>
+  <view class='about_title' style=''>关于南泰跳蚤市场</view>
+  <view class='about_content'>HI! 你好，欢迎使用南泰跳蚤市场！</view>
+  <view class='about_content'>该项目是由我个人开发的一款校园二手交易平台，用于学长，学姐，学弟，学妹分享，交易闲置物品，让我们的大学生活更加的方便，便捷。在这个项目中我学会了很多东西，如果你有什么好的想法,建议，可以在GitHub或QQ中提交给我，我会加到以后的功能中，或者加入这个项目，期待你的加入。</view>
+   <view class='about_content'>更多功能敬请期待。。。。</view>
+</view>

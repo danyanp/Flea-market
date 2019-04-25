@@ -47,6 +47,21 @@
         />
       </van-cell-group>
     </view>
+    <view style='margin-top:20rpx;' wx:if="{{isiwant||showphone}}">
+        <van-cell-group>
+        <van-field
+          value="{{detail.phonenum}}"
+          label="联系方式"
+          left-icon="phone"
+          disabled
+          border="{{ false }}"
+          use-button-slot
+        >
+        <van-button data-text="{{detail.phonenum}}" slot="button" size="small" type="primary" bind:click="copyText" >复制</van-button>
+        </van-field>
+       
+      </van-cell-group>
+    </view>
 
 
     <!-- 商品描述 -->

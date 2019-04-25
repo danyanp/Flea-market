@@ -1,0 +1,33 @@
+<!--pages/major/major.wxml-->
+<van-toast id="van-toast" />
+<form bindsubmit="formSubmit">
+  <view class='cell'>
+      <van-field
+      name="majornum"
+      id = "majornum"
+      value="{{ majornum }}"
+      required
+      clearable
+      maxlength="11"
+      label="学号"
+      icon="question-o"
+      placeholder="请输入学号"
+    />
+  </view>
+  <button type="warn" form-type="submit">查询</button>
+</form>
+<view  wx:if="{{viewdetail}}">
+  <van-cell
+      title="专业"
+      value="{{major.majorclass}}"
+    />
+      <van-cell
+      title="班级"
+      value="{{major.major}}"
+    />
+      <van-cell
+      title="所属二级学院"
+      value="{{major.item1}}"
+    />
+</view>
+  

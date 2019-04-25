@@ -249,17 +249,17 @@ Page({
     var description = String(e.detail.value.description);
     var goodprice = e.detail.value.goodprice;
     var username = String(e.detail.value.username);
-    var phonenum = Number(e.detail.value.phonenum);
+    var phonenum = String(e.detail.value.phonenum);
     var classnum = e.detail.value.classnum;
     var pic = value;
     var category = that.data.categoryobjectId;
-    var Department = that.data.Departmentvalue;
-    console.log(classnum)  
-    if (Department.length==0){
-      Toast('亲，院系为必填项');
-      return false;1
-    } 
-    if (!pic | !goodname | !goodprice | !username | !phonenum | !classnum | !category) {
+    // var Department = that.data.Departmentvalue;
+    // console.log(classnum)  
+    // if (Department.length==0){
+    //   Toast('亲，院系为必填项');
+    //   return false;1
+    // } 
+    if (!pic | !goodname | !goodprice | !username | !phonenum | !category) {
       Toast('亲，打*号的为必填项');
       return false;
     }
@@ -293,10 +293,10 @@ Page({
     query.set("goodprice", goodprice)
     query.set("username", username)
     query.set("phonenum", phonenum)
-    query.set("classnum", classnum)
+    // query.set("classnum", classnum)
     query.set('goodpicture', pic)
     query.set('category_id', category_id)
-    query.set('department', Department)
+    // query.set('department', Department)
     query.save().then(res => {
       // 清除缓存
       wx.removeStorage({
@@ -331,7 +331,7 @@ Page({
         Toast('亲，让别人知道是你');
         break;
       case 'phonenum':
-        Toast('亲，需要知道你的电话号码，联系你哦');
+        Toast('亲，需要知道你的联系方式，联系你哦');
         break;
       case 'classnum':
         Toast('亲，我们会上门收货的哦');

@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText": "学号查询",
+    "usingComponents": {
+      "van-button": "../../style/dist/button/index",
+      "van-card": "../../style/dist/card/index",
+      "van-tab": "../../style/dist/tab/index",
+      "van-tabs": "../../style/dist/tabs/index",
+      "van-field": "../../style/dist/field/index",
+      "van-toast": "../../style/dist/toast/index",
+      "van-icon": "../../style/dist/icon/index",
+      "van-picker": "../../style/dist/picker/index",
+      "van-popup": "../../style/dist/popup/index",
+      "van-cell": "../../style/dist/cell/index",
+      "van-cell-group": "../../style/dist/cell-group/index"
+    }
+}

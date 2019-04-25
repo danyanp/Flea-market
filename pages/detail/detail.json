@@ -6,6 +6,7 @@
   "van-goods-action-icon": "../../style/dist/goods-action-icon/index",
   "van-goods-action-button": "../../style/dist/goods-action-button/index",
   "van-toast": "../../style/dist/toast/index",
-  "van-transition": "../../style/dist/transition/index"
+  "van-transition": "../../style/dist/transition/index",
+  "van-button": "../../style/dist/button/index"
 }
 }

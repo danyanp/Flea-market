@@ -13,6 +13,7 @@ Page({
     detail: {},
     iwant: "",
     isiwant: 1,
+    showphone:false,
     show: false,
     name: 'fade',
     showCustom: false,
@@ -79,16 +80,18 @@ Page({
 
     if (e.target.id == "activitydetails") {
       wx.switchTab({
-        url: '../ActivityDetails/ActivityDetails'
+        url: '../about/about'
       })
     } else {
       //爱心动画
       that.setData({
-        showCustom: true
+        showCustom: true,
+        showphone: true,
       });
       setTimeout(() => {
         that.setData({
           showCustom: false
+        
         });
       }, 500);
       //判断是否已经想要
@@ -116,5 +119,21 @@ Page({
         console.log(err)
       })
     }
+  },
+  //复制信息
+  copyText: function (e) {
+    console.log(e)
+    wx.setClipboardData({
+      data: String(e.currentTarget.dataset.text),
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
   },
 })
